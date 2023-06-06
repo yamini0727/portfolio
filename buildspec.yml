@@ -12,16 +12,5 @@ phases:
   build:
     commands:
       - npm run build
-<<<<<<< HEAD
       - aws s3 sync ./ s3://nithinv-portfolio/ --cache-control 360000 --expires "2022-06-14T00:00:00Z" --delete
 
-artifacts:
-  files:
-    - '**/*'
-  discard-path: no
-  base-directory: build
-=======
-  post_build:
-    commands:
-      - echo Build completed on `date`
->>>>>>> 91e4a51a3e538345a1d3a0c8a99dd13dc770c3b1
