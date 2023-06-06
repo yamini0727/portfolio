@@ -1,12 +1,18 @@
 version: 0.2
-
 phases:
-  pre-build:
-    comands:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo Installing
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies.
       - npm install
   build:
     commands:
       - npm run build
+<<<<<<< HEAD
       - aws s3 sync ./ s3://nithinv-portfolio/ --cache-control 360000 --expires "2022-06-14T00:00:00Z" --delete
 
 artifacts:
@@ -14,3 +20,8 @@ artifacts:
     - '**/*'
   discard-path: no
   base-directory: build
+=======
+  post_build:
+    commands:
+      - echo Build completed on `date`
+>>>>>>> 91e4a51a3e538345a1d3a0c8a99dd13dc770c3b1
