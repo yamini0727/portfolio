@@ -7,6 +7,7 @@ phases:
   build:
     commands:
       - npm run build
+      - aws s3 sync ./ s3://nithinv-portfolio/ --cache-control 360000 --expires "2022-06-14T00:00:00Z" --delete
 
 artifacts:
   files:
